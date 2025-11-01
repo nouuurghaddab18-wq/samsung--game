@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game 3 - Devinette Samsung</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo" class="logo">
+<h2>Devinette Samsung</h2>
+</header>
+<main id="devContainer"></main>
+<script>
+let player = localStorage.getItem('currentPlayer');
+let scores = JSON.parse(localStorage.getItem('scores'));
+const devQuestions=[
+{q:"Je suis petit, je tiens dans la main, je permets d'appeler et naviguer sur Internet.", answer:"smartphone"},
+{q:"Je suis un objet qui se connecte à votre smartphone pour écouter de la musique sans fil.", answer:"écouteurs"},
+{q:"Je suis grand, je montre des images et des films dans votre salon.", answer:"télévision"},
+{q:"Je suis une montre qui peut mesurer ton rythme cardiaque et tes pas.", answer:"galaxy watch"}
+];
+let currentQ=0;
+function showDev(){
+if(currentQ>=devQuestions.length){
+    localStorage.setItem('scores',JSON.stringify(scores));
+    window.location.href='admin.html';
+    return;
+}
+let q=devQuestions[currentQ];
+let html=`<h2>Q${currentQ+1}: ${q.q}</h2>
+<input type="text" id="devInput" placeholder="Votre réponse">
+<button onclick="checkDev()">Valider</button>`;
+document.getElementById('devContainer').innerHTML=html;
+}
+function checkDev(){
+let ans=document.getElementById('devInput').value.trim().toLowerCase();
+if(ans===devQuestions[currentQ].answer) scores.devinette+=1;
+currentQ++;
+localStorage.setItem('scores',JSON.stringify(scores));
+showDev();
+}
+showDev();
+</script>
+</body>
+</html>
+

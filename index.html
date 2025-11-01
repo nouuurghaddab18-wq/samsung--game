@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samsung Game Challenge - Accueil</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo" class="logo">
+    <h1>Samsung Game Challenge</h1>
+</header>
+<main>
+    <label>Entrez votre nom:</label><br>
+    <input type="text" id="playerName" placeholder="Votre nom ici">
+    <br>
+    <button onclick="startGame()">Commencer le jeu</button>
+</main>
+<footer>
+    <p>© 2025 Samsung Game Challenge</p>
+</footer>
+<script>
+function startGame(){
+    const name = document.getElementById('playerName').value.trim();
+    if(!name){alert('Veuillez entrer votre nom !'); return;}
+    localStorage.setItem('currentPlayer', name);
+    localStorage.setItem('scores', JSON.stringify({quiz:0,vraiFaux:0,devinette:0}));
+    window.location.href = 'game1start.html';
+}
+</script>
+</body>
+</html>
+

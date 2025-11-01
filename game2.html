@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game 2 - Vrai/Faux Samsung</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo" class="logo">
+<h2>Vrai / Faux Samsung</h2>
+</header>
+<main id="vfContainer"></main>
+<script>
+let player = localStorage.getItem('currentPlayer');
+let scores = JSON.parse(localStorage.getItem('scores'));
+const vfQuestions=[
+{q:"Samsung est une marque coréenne.", answer:true},
+{q:"Samsung produit des appareils électroménagers.", answer:true},
+{q:"Samsung a été fondée en France.", answer:false},
+{q:"Samsung fabrique des puces mémoire et processeurs.", answer:true},
+{q:"Samsung Galaxy Note a un stylet intégré.", answer:true}
+];
+let currentQ=0;
+function showVF(){
+if(currentQ>=vfQuestions.length){localStorage.setItem('scores',JSON.stringify(scores)); window.location.href='game3start.html'; return;}
+let q=vfQuestions[currentQ];
+let html=`<h2>Q${currentQ+1}: ${q.q}</h2><button onclick="checkVF(true)">Vrai</button><button onclick="checkVF(false)">Faux</button>`;
+document.getElementById('vfContainer').innerHTML=html;
+}
+function checkVF(ans){if(ans===vfQuestions[currentQ].answer)scores.vraiFaux+=1; currentQ++; localStorage.setItem('scores',JSON.stringify(scores)); showVF();}
+showVF();
+</script>
+</body>
+</html>
+

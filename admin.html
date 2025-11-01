@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Samsung Game Challenge</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo" class="logo">
+<h2>Admin - Résultats</h2>
+</header>
+<main>
+<label>Mot de passe:</label><br>
+<input type="password" id="pass" placeholder="Entrez mot de passe">
+<br>
+<button onclick="showResults()">Afficher les résultats</button>
+<div id="results"></div>
+</main>
+<script>
+function showResults(){
+let pass=document.getElementById('pass').value;
+if(pass!=='admin2025'){alert('Mot de passe incorrect'); return;}
+let scores = JSON.parse(localStorage.getItem('scores'));
+let html="<h2>Résultats du joueur: "+localStorage.getItem('currentPlayer')+"</h2>";
+html+=`<table><tr><th>Game</th><th>Score</th></tr>
+<tr><td>Quiz</td><td>${scores.quiz}</td></tr>
+<tr><td>Vrai/Faux</td><td>${scores.vraiFaux}</td></tr>
+<tr><td>Devinette</td><td>${scores.devinette}</td></tr></table>`;
+document.getElementById('results').innerHTML=html;
+}
+</script>
+</body>
+</html>
+

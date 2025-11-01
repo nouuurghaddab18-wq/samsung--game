@@ -1,0 +1,83 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f4f8;
+    color: #1428A0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background:#1428A0;
+    color:white;
+    padding:20px;
+}
+
+header img.logo {
+    height:60px;
+}
+
+main {
+    padding: 20px;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 20px 0;
+}
+
+input[type=text], input[type=password] {
+    padding: 12px;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button {
+    background: #00ADEF;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #008bbd;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #00ADEF;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #00ADEF;
+    color: white;
+}
+

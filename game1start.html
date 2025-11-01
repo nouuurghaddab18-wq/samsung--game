@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commencer Game 1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo" class="logo">
+  <h1>Samsung Game Challenge</h1>
+</header>
+<main>
+  <h2>Bienvenue, <span id="playerName"></span></h2>
+  <p>Cliquez sur le bouton pour commencer le Game 1</p>
+  <button onclick="startGame1()">Commencer Game 1</button>
+</main>
+<script>
+document.getElementById('playerName').textContent = localStorage.getItem('currentPlayer');
+function startGame1(){
+    window.location.href = 'game1.html';
+}
+</script>
+</body>
+</html>
